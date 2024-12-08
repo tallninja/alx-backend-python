@@ -47,9 +47,13 @@ def create_table(connection):
         print(e)
 
 
-if __name__ == '__main__':
-    default_connection = connect_db()
-    create_database(default_connection)
-    alx_connection = connect_to_prodev()
-    create_table(alx_connection)
-
+def insert_data(connection, data):
+    query = f'''
+            INSERT INTO user_data VALUES
+            ({data['uuid']}, {data['name']}, {data['email']}, {data['age']})
+            '''
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(query)
+    except Error as e:
+        print(e)
