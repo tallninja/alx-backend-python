@@ -25,7 +25,7 @@ def create_database(connection):
         print(e)
 
 
-def conect_to_prodev():
+def connect_to_prodev():
     try:
         with connect(host=DB_HOST, user=DB_USER, password=DB_PASSWORD, database=DB_NAME) as connection:
             return connection
@@ -48,6 +48,8 @@ def create_table(connection):
 
 
 if __name__ == '__main__':
-    connection = connect_db()
-    create_database(connection)
+    default_connection = connect_db()
+    create_database(default_connection)
+    alx_connection = connect_to_prodev()
+    create_table(alx_connection)
 
