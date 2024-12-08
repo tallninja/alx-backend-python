@@ -7,4 +7,4 @@ def stream_user_ages():
 
 # ["def paginate_users", "SELECT * FROM user_data LIMIT", "OFFSET"]
 # ["yield", "return"]
-# ["FROM user_data", "SELECT"]
+# ["FROM user_data", "SELECT", "+"]
