@@ -33,6 +33,20 @@ def conect_to_prodev():
         print(e)
 
 
+def create_table(connection):
+    query = '''CREATE TABLE IF NOT EXISTS (
+                user_id VARCHAR(255) PRIMARY KEY, 
+                name VARCHAR NOT NULL, 
+                email VARCHAR NOT NULL,
+                age DECIMAL NOT NULL
+            )'''
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(query)
+    except Error as e:
+        print(e)
+
+
 if __name__ == '__main__':
     connection = connect_db()
     create_database(connection)
